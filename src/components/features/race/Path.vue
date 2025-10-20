@@ -20,8 +20,6 @@ const randomnessInSpeed = getRandomNumber(20, 80)
       </span>
     </div>
 
-    {{ randomnessInSpeed }}
-
     <div class="path__horse-container">
       <img
         :src="horseImg"
