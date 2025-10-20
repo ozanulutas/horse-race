@@ -37,24 +37,24 @@ const props = defineProps({
     flex: 1;
     overflow-y: auto;
 
-    // &::-webkit-scrollbar {
-    //   width: 16px;
-    //   height: 16px;
-    // }
+    &::-webkit-scrollbar {
+      width: 14px;
+      height: 14px;
+    }
 
-    // &::-webkit-scrollbar-track {
-    //   background: $color-alto-1;
-    // }
+    &::-webkit-scrollbar-track {
+      background: $color-white;
+    }
 
-    // &::-webkit-scrollbar-thumb {
-    //   background-color: $color-nobel;
-    //   border-radius: 10px;
-    //   border: 1px solid $color-nobel;
-    // }
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-mercury;
+      border-radius: 10px;
+      border: 1px solid $color-nobel;
 
-    // &::-webkit-scrollbar-thumb:hover {
-    //   background-color: #555;
-    // }
+      &:hover {
+        background-color: $color-alto-1;
+      }
+    }
   }
 }
 </style>
