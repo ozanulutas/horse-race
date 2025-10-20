@@ -1,8 +1,13 @@
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
-# Horse Racing
+# :racehorse: Horse Racing
 
-This template should help get you started developing with Vue 3 in Vite.
+## Technologies
+
+- This project written in Vue 3
+- Vuex is used for global state management
+- Vue Router is used for routing
+- SASS is used for styling
 
 ## Project Setup
 
