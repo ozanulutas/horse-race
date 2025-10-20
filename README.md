@@ -2,10 +2,12 @@
 
 # :racehorse: Horse Racing
 
+This prject aims to simulate a horse race. There are 6 laps with 10 horses racing. Each lap has different distances.
+
 ## Technologies
 
 - This project written in Vue 3
-- Vuex is used for global state management
+- Vuex is used for global state management with modular stores
 - Vue Router is used for routing
 - SASS is used for styling
 
