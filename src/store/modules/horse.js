@@ -1,5 +1,5 @@
 import { colors, TOTAL_HORSE_COUNT, horseNames } from '@/constants'
-import { getRandomNumber } from '@/utils'
+import { getRandomNumber, getUniqueRandomNumbers } from '@/utils'
 
 export default {
   namespaced: true,
@@ -16,15 +16,7 @@ export default {
 
   actions: {
     generateHorses({ commit }) {
-      const indexes = []
-
-      while (indexes.length < TOTAL_HORSE_COUNT) {
-        const index = getRandomNumber(0, horseNames.length - 1)
-
-        if (!indexes.includes(index)) {
-          indexes.push(index)
-        }
-      }
+      const indexes = getUniqueRandomNumbers(0, horseNames.length - 1, TOTAL_HORSE_COUNT)
 
       const horses = indexes.map((i) => {
         const horseName = horseNames[i]
@@ -45,15 +37,7 @@ export default {
 
   getters: {
     randomHorses: (state) => (count) => {
-      const indexes = []
-
-      while (indexes.length < count) {
-        const index = getRandomNumber(0, state.horses.length - 1)
-
-        if (!indexes.includes(index)) {
-          indexes.push(index)
-        }
-      }
+      const indexes = getUniqueRandomNumbers(0, state.horses.length - 1, count)
 
       return indexes.map((i) => state.horses[i])
     },
