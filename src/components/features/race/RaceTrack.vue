@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { HORSE_COUNT_PER_ROUND, rounds } from '@/constants'
-import Path from '@/components/features/race/Path.vue'
+import RacePath from '@/components/features/race/RacePath.vue'
 
 const store = useStore()
 
@@ -18,26 +18,23 @@ const racingHorses = computed(() => {
 </script>
 
 <template>
-  <div class="track">
-    <div class="track__paths">
-      <Path
-        v-if="racingHorses.length"
-        v-for="horse in racingHorses"
-        :key="horse.id"
-        :horse="horse"
-      />
-      <Path v-else v-for="n in HORSE_COUNT_PER_ROUND" :key="n" :horse="{ position: n }" />
+  <div class="race-track">
+    <div class="race-track__paths">
+      <div v-if="racingHorses.length">
+        <RacePath v-for="horse in racingHorses" :key="horse.id" :horse="horse" />
+      </div>
+      <RacePath v-else v-for="n in HORSE_COUNT_PER_ROUND" :key="n" :horse="{ position: n }" />
     </div>
 
-    <div class="track__info">
+    <div class="race-track__info">
       <span>{{ round.lap }}st Lap {{ round.distance }}m</span>
-      <span class="track__info-item--right">FINISH</span>
+      <span class="race-track__info-item--right">FINISH</span>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.track {
+.race-track {
   &__paths {
     padding-top: 12px;
     border-right: 2px solid $color-cinnabar;

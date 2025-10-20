@@ -3,7 +3,7 @@ import { onMounted } from 'vue'
 import { useStore } from 'vuex'
 
 import HorseList from '@/components/features/HorseList.vue'
-import Track from '@/components/features/race/Track.vue'
+import RaceTrack from '@/components/features/race/RaceTrack.vue'
 import ResultList from '@/components/features/ResultList.vue'
 import ScheduleList from '@/components/features/ScheduleList.vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
@@ -19,7 +19,7 @@ onMounted(() => {
   <main class="main">
     <AppHeader class="header-area" />
     <HorseList class="horses-area" />
-    <Track class="track-area" />
+    <RaceTrack class="track-area" />
     <div class="schedule-area">
       <ScheduleList class="schedule-area-item" />
       <ResultList class="schedule-area-item" />

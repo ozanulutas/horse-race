@@ -1,5 +1,6 @@
+import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import BaseButton from '@/components/base/BaseButton.vue' // adjust path if needed
+import BaseButton from '@/components/base/BaseButton.vue'
 
 describe('BaseButton.vue', () => {
   it('renders slot content', () => {
@@ -35,7 +36,6 @@ describe('BaseButton.vue', () => {
 
     expect(wrapper.emitted()).toHaveProperty('click')
     expect(wrapper.emitted('click')).toHaveLength(1)
-    // Optionally check event argument is MouseEvent
     expect(wrapper.emitted('click')[0][0]).toBeInstanceOf(MouseEvent)
   })
 

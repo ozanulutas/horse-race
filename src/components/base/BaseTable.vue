@@ -15,12 +15,12 @@ const props = defineProps({
 </script>
 
 <template>
-  <header v-if="header" class="table-header">{{ header }}</header>
+  <header v-if="props.header" class="table-header">{{ props.header }}</header>
   <table class="base-table">
     <thead>
       <tr>
         <th
-          v-for="column in columns"
+          v-for="column in props.columns"
           :key="column.key"
           :style="{ width: column.width }"
           class="base-table__th"
@@ -30,8 +30,8 @@ const props = defineProps({
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in data" :key="item.id">
-        <td v-for="column in columns" :key="column.key" class="base-table__td">
+      <tr v-for="item in props.data" :key="item.id">
+        <td v-for="column in props.columns" :key="column.key" class="base-table__td">
           {{ item[column.key] }}
         </td>
       </tr>

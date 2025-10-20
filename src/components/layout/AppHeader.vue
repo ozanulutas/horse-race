@@ -10,7 +10,7 @@ const hasSchedules = computed(() => !!store.state.schedule.schedules.length)
 const isFinished = computed(() => store.state.race.results.length === rounds.length)
 
 watchEffect(() => {
-  if (isFinished) {
+  if (isFinished.value) {
     isStarted.value = false
   }
 })

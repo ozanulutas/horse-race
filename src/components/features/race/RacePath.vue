@@ -5,7 +5,7 @@ import horseImg from '@/assets/images/horse.png'
 const props = defineProps({
   horse: {
     type: Object,
-    default: {},
+    default: () => ({}),
   },
 })
 
@@ -13,32 +13,32 @@ const randomnessInSpeed = getRandomNumber(20, 80)
 </script>
 
 <template>
-  <div class="path">
-    <div class="path__position">
-      <span class="path__position-number">
-        {{ horse.position }}
+  <div class="race-path">
+    <div class="race-path__position">
+      <span class="race-path__position-number">
+        {{ props.horse.position }}
       </span>
     </div>
 
-    <div class="path__horse-container">
+    <div class="race-path__horse-container">
       <img
         :src="horseImg"
         :style="{
           left:
-            horse.progress > randomnessInSpeed
-              ? `calc(${horse.progress}% - 40px)`
-              : `${horse.progress}%`,
+            props.horse.progress > randomnessInSpeed
+              ? `calc(${props.horse.progress}% - 40px)`
+              : `${props.horse.progress}%`,
         }"
-        class="path__horse"
+        class="race-path__horse"
         alt="Running horse"
-        :title="horse.name"
+        :title="props.horse.name"
       />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.path {
+.race-path {
   display: flex;
   height: 50px;
 

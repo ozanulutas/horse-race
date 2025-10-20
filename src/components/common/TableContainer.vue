@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
   <section class="table-container">
-    <header :class="['table-container__header', headerClass]">{{ title }}</header>
+    <header :class="['table-container__header', props.headerClass]">{{ props.title }}</header>
     <div class="table-container__tables">
       <slot />
     </div>

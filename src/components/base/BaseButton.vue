@@ -10,7 +10,7 @@ const emit = defineEmits(['click'])
 </script>
 
 <template>
-  <button class="base-button" :disabled @click="emit('click', $event)">
+  <button class="base-button" :disabled="props.disabled" @click="emit('click', $event)">
     <slot />
   </button>
 </template>

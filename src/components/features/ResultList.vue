@@ -17,6 +17,7 @@ const columns = [
   <TableContainer :headerClass="'table-container-header'" :title="'RESULTS'">
     <BaseTable
       v-for="result in results"
+      :key="result.lap"
       :data="result.horses"
       :header="`${result.lap}ST Lap - ${result.distance}m`"
       :columns
