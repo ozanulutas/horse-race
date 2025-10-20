@@ -67,7 +67,7 @@ export default {
 
           dispatch('start')
         }
-      }, 200)
+      }, 100)
     },
     pause() {
       clearInterval(intervalId)

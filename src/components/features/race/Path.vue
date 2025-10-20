@@ -1,4 +1,5 @@
 <script setup>
+import { getRandomNumber } from '@/utils'
 import horseImg from '@/assets/images/horse.png'
 
 const props = defineProps({
@@ -7,6 +8,8 @@ const props = defineProps({
     default: {},
   },
 })
+
+const randomnessInSpeed = getRandomNumber(20, 80)
 </script>
 
 <template>
@@ -17,11 +20,16 @@ const props = defineProps({
       </span>
     </div>
 
+    {{ randomnessInSpeed }}
+
     <div class="path__horse-container">
       <img
         :src="horseImg"
         :style="{
-          left: horse.progress > 85 ? `calc(${horse.progress}% - 40px)` : `${horse.progress}%`,
+          left:
+            horse.progress > randomnessInSpeed
+              ? `calc(${horse.progress}% - 40px)`
+              : `${horse.progress}%`,
         }"
         class="path__horse"
         alt="Running horse"

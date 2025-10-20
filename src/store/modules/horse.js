@@ -20,7 +20,7 @@ export default {
 
       const horses = indexes.map((i) => {
         const horseName = horseNames[i]
-        const condition = getRandomNumber(50, 100) // @TODO: düzelt
+        const condition = getRandomNumber(1, 100)
         const color = colors[i]
 
         return {
