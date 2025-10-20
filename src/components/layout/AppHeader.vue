@@ -1,14 +1,12 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useStore } from 'vuex'
-import { ref } from 'vue'
-import { watchEffect } from 'vue'
 import BaseButton from '@/components/base/BaseButton.vue'
 import { rounds } from '@/constants'
 
 const store = useStore()
 const isStarted = ref(false)
-const hasProgram = computed(() => !!store.state.schedule.schedules.length)
+const hasSchedules = computed(() => !!store.state.schedule.schedules.length)
 const isFinished = computed(() => store.state.race.results.length === rounds.length)
 
 watchEffect(() => {
@@ -42,7 +40,7 @@ const toggleStart = () => {
       <BaseButton @click="generateProgram" :disabled="isStarted && !isFinished"
         >GENERATE PROGRAM</BaseButton
       >
-      <BaseButton @click="toggleStart" :disabled="!hasProgram || isFinished"
+      <BaseButton @click="toggleStart" :disabled="!hasSchedules || isFinished"
         >START / PAUSE</BaseButton
       >
     </div>
