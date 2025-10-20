@@ -17,7 +17,12 @@ watchEffect(() => {
   }
 })
 
-const generateProgram = () => store.dispatch('schedule/generateSchedules')
+const generateProgram = () => {
+  store.dispatch('schedule/generateSchedules')
+
+  isStarted.value = false
+}
+
 const toggleStart = () => {
   if (isStarted.value) {
     store.dispatch('race/pause')
