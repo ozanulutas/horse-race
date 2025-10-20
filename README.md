@@ -10,7 +10,7 @@ This prject aims to simulate a horse race. There are 6 laps with 10 horses racin
 - **Vuex** is used for global state management with modular stores.
 - **Vue Router** is used for routing.
 - **SASS** is used for styling.
-- **Vitest** is used for unit tests. **Tests are written by AI**.
+- **Vitest** is used for unit tests. **AI was used to help write tests**.
 - Node version **22.20.0** is used.
 
 ## Project Setup
