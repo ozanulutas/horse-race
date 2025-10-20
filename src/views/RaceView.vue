@@ -38,6 +38,17 @@ onMounted(() => {
   gap: 12px;
   height: 100vh;
   padding: 8px;
+
+  @media only screen and (max-width: $breakpoint-sm) {
+    grid-template-areas:
+      'header'
+      'track'
+      'schedule'
+      'horses';
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    height: auto;
+  }
 }
 
 .header-area {

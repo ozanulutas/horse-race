@@ -56,6 +56,10 @@ const toggleStart = () => {
   padding: 6px 12px;
   background-color: $color-apricot;
   border: 1px solid $color-black;
+
+  @media only screen and (max-width: $breakpoint-sm) {
+    flex-direction: column;
+  }
 }
 
 .app-title {
