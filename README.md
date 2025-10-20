@@ -6,12 +6,12 @@ This prject aims to simulate a horse race. There are 6 laps with 10 horses racin
 
 ## Technologies
 
-- This project written in Vue 3.
-- Vuex is used for global state management with modular stores.
-- Vue Router is used for routing.
-- SASS is used for styling.
+- This project written in **Vue 3** with composition API.
+- **Vuex** is used for global state management with modular stores.
+- **Vue Router** is used for routing.
+- **SASS** is used for styling.
 - Vitest is used for unit tests. **Tests are written by AI**.
-- Node version 22.20.0 is used.
+- Node version **22.20.0** is used.
 
 ## Project Setup
 
