@@ -20,7 +20,12 @@ const randomnessInSpeed = getRandomNumber(20, 80)
       </span>
     </div>
 
-    <div class="race-path__horse-container">
+    <div
+      :class="[
+        'race-path__horse-container',
+        props.horse.position === 1 ? 'race-path__horse-container--with-border' : '',
+      ]"
+    >
       <img
         :src="horseImg"
         :style="{
@@ -64,6 +69,10 @@ const randomnessInSpeed = getRandomNumber(20, 80)
     flex: 1;
     height: 100%;
     border-bottom: 1px dashed $color-black;
+
+    &--with-border {
+      border-top: 1px dashed $color-black;
+    }
   }
 
   &__horse {
