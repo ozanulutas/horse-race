@@ -14,14 +14,17 @@ describe('schedule Vuex module', () => {
     it('setSchedules correctly updates the state', () => {
       const state = { schedules: [] }
       const mockSchedules = [{ lap: 1, distance: 1000, horses: [] }]
+
       scheduleModule.mutations.setSchedules(state, mockSchedules)
+
       expect(state.schedules).toEqual(mockSchedules)
     })
   })
 
   describe('actions', () => {
-    it('generateSchedules generates schedules and commits them', () => {
+    it('generateSchedules generates and commits schedules, and dispatches resetRace', () => {
       const commit = vi.fn()
+      const dispatch = vi.fn()
       const rootGetters = {
         'horse/randomHorses': vi.fn().mockReturnValue([
           { id: 1, name: 'Alpha', condition: 50 },
@@ -29,7 +32,7 @@ describe('schedule Vuex module', () => {
         ]),
       }
 
-      scheduleModule.actions.generateSchedules({ commit, rootGetters })
+      scheduleModule.actions.generateSchedules({ commit, rootGetters, dispatch })
 
       expect(commit).toHaveBeenCalledWith(
         'setSchedules',
@@ -45,14 +48,19 @@ describe('schedule Vuex module', () => {
         ])
       )
 
-      expect(commit).toHaveBeenCalledWith(
-        'race/setRacingHorses',
-        expect.any(Array),
+      expect(dispatch).toHaveBeenCalledWith(
+        'race/resetRace',
+        expect.arrayContaining([
+          expect.objectContaining({
+            id: 1,
+            name: 'Alpha',
+            position: 1,
+            condition: 50,
+            progress: 0,
+          }),
+        ]),
         { root: true }
       )
-
-      expect(commit).toHaveBeenCalledWith('race/setResults', [], { root: true })
-      expect(commit).toHaveBeenCalledWith('race/setCurrentLap', 1, { root: true })
     })
   })
 
@@ -67,6 +75,12 @@ describe('schedule Vuex module', () => {
 
       const result = scheduleModule.getters.currentSchedule(state)(2)
       expect(result).toEqual({ lap: 2, distance: 1200 })
+    })
+
+    it('currentSchedule returns undefined if no schedule matches', () => {
+      const state = { schedules: [{ lap: 1, distance: 1000 }] }
+      const result = scheduleModule.getters.currentSchedule(state)(3)
+      expect(result).toBeUndefined()
     })
   })
 })
