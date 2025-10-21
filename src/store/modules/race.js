@@ -72,6 +72,11 @@ export default {
     pause() {
       clearInterval(intervalId)
     },
+    resetRace({ commit }, payload) {
+      commit('setRacingHorses', payload)
+      commit('setResults', [])
+      commit('setCurrentLap', 1)
+    },
   },
 
   getters: {},

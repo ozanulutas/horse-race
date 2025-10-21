@@ -14,7 +14,7 @@ export default {
   },
 
   actions: {
-    generateSchedules({ commit, rootGetters }) {
+    generateSchedules({ commit, rootGetters, dispatch }) {
       const schedules = rounds.map((round) => {
         const horses = rootGetters['horse/randomHorses'](HORSE_COUNT_PER_ROUND)?.map(
           (horse, i) => ({
@@ -36,9 +36,8 @@ export default {
       })
 
       commit('setSchedules', schedules)
-      commit('race/setRacingHorses', schedules[0].horses, { root: true })
-      commit('race/setResults', [], { root: true })
-      commit('race/setCurrentLap', 1, { root: true })
+
+      dispatch('race/resetRace', schedules[0].horses, { root: true })
     },
   },
 
